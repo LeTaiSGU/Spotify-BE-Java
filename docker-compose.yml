@@ -1,0 +1,44 @@
+
+version: '3.8'
+services:
+  eureka-server:
+    build: ./eureka-server
+    ports:
+      - "8761:8761"
+
+# My Sql config
+#  mysql:
+#    image: mysql:8.0.41-debian
+#    container_name: spotify-mysql-container
+#    ports:
+#      - "3306:3306"
+#    environment:
+#        MYSQL_ROOT_PASSWORD: root
+#        MYSQL_DATABASE: keyload
+#    volumes:
+#        - mysql-data:/var/lib/mysql
+#    networks:
+#        - spotify-network
+
+# Postgres config
+#  postgres:
+#    image: postgres:14.17-bookworm
+#    container_name: my-postgres-container
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: root
+#      POSTGRES_DB: keyload
+#    volumes:
+#      - postgres-data:/var/lib/postgresql/data
+#    networks:
+#      - spotify-network
+
+
+networks:
+    spotify-network:
+        driver: bridge
+volumes:
+    mysql-data:
+    postgres-data:
